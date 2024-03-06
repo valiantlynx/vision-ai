@@ -1,2 +1,3 @@
 .dist
 /src/__pycache__
+src/dnn_model/yolov4.weights
