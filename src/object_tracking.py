@@ -7,6 +7,7 @@ import math
 od = ObjectDetection()
 
 cap = cv2.VideoCapture("src/los_angeles.mp4")
+# cap = cv2.VideoCapture(0) # to use your camera
 
 # Initialize count
 count = 0
