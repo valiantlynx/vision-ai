@@ -1,5 +1,5 @@
 {
-  "name": "python-development-environment-dev",
+  "name": "vision-ai-dev",
   "dockerComposeFile": ["../docker-compose.yml"],
   "service": "fastapi",
   "workspaceFolder": "/code",

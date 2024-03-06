@@ -1,7 +1,7 @@
-docker build -t python-development-environment-image .
-docker run --name python-development-environment-container -d -p 8000:8000 -v $(pwd):/code python-development-environment-image
+docker build -t vision-ai-image .
+docker run --name vision-ai-container -d -p 8000:8000 -v $(pwd):/code vision-ai-image
 
 #connect to turborepo
-git subtree add --prefix=apps/python-development-environment https://github.com/valiantlynx/python-development-environment.git main --squash
-git subtree pull --prefix=apps/python-development-environment https://github.com/valiantlynx/python-development-environment.git main --squash
-git subtree push --prefix=apps/python-development-environment https://github.com/valiantlynx/python-development-environment.git main
+git subtree add --prefix=apps/vision-ai https://github.com/valiantlynx/vision-ai.git main --squash
+git subtree pull --prefix=apps/vision-ai https://github.com/valiantlynx/vision-ai.git main --squash
+git subtree push --prefix=apps/vision-ai https://github.com/valiantlynx/vision-ai.git main

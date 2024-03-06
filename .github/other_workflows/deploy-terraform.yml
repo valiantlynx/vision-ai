@@ -4,7 +4,7 @@ run-name: ${{ github.actor }} is deploying 🚀🚀🚀
 on:
   workflow_dispatch:
   workflow_run:
-    workflows: ["python-development-environment"]  # This triggers the deployment after python-development-environment workflow completes
+    workflows: ["vision-ai"]  # This triggers the deployment after vision-ai workflow completes
     types:
       - completed
 
