@@ -6,7 +6,7 @@ COPY ./requirements.txt ./
 RUN apt-get update && apt-get install git -y && apt-get install curl -y
 
 RUN python -m venv venv
-RUN source venv/bin/activate
+RUN ./venv/bin/activate
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY ./src ./src
