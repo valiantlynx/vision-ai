@@ -1,16 +1,23 @@
+from fastapi import FastAPI, WebSocket
 from typing import Union
-from fastapi import FastAPI
+from video_stream import VideoStream
+from object_detection import ObjectDetection
+import asyncio
 
 app = FastAPI()
- 
-import debugpy
-debugpy.listen(("0.0.0.0", 5678))
+
+od = ObjectDetection()
 
 @app.get("/")
 def read_root():
-    return {"Hello": "World!"}
+    return {"Hello": "World"}
 
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await websocket.accept()
+    video_stream = VideoStream(od)
+    while True:
+        data = await websocket.receive_text()
+        # Process frame and get detection results
+        result = video_stream.process_frame(data)
+        await websocket.send_text(result)
