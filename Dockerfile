@@ -1,10 +1,12 @@
-FROM python:3.11-slim
+FROM python:3.12-slim
 
 WORKDIR /code 
 
-COPY ./requirements.txt ./
 RUN apt-get update && apt-get install git -y && apt-get install curl -y
-RUN pip install --no-cache-dir -r requirements.txt
+
+COPY ./requirements.txt ./
+COPY ./run.sh ./
+RUN chmod +x ./run.sh && ./run.sh
 
 COPY ./src ./src
 
