@@ -42,7 +42,7 @@ while True:
             for pt2 in center_points_prev_frame:
                 distance = math.hypot(pt2[0] - pt[0], pt2[1] - pt[1])
 
-                if distance < 20:
+                if distance < 30:
                     tracking_objects[track_id] = pt
                     track_id += 1
     else:
@@ -72,9 +72,10 @@ while True:
             tracking_objects[track_id] = pt
             track_id += 1
 
+    # Visualize tracking
     for object_id, pt in tracking_objects.items():
         cv2.circle(frame, pt, 5, (0, 0, 255), -1)
-        cv2.putText(frame, str(object_id), (pt[0], pt[1] - 7), 0, 1, (0, 0, 255), 2)
+        cv2.putText(frame, str(object_id), (pt[0], pt[1] - 7), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     print("Tracking objects")
     print(tracking_objects)
@@ -95,3 +96,4 @@ while True:
 
 cap.release()
 cv2.destroyAllWindows()
+print(f"Total unique cars detected: {track_id}")
