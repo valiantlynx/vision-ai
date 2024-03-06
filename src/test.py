@@ -4,3 +4,7 @@ from object_detection import ObjectDetection
 
 cap = cv2.VideoCapture("los_angeles.mp4")
 
+_, frame = cap.read()
+
+cv2.imshow("Frame", frame)
+cv2.waitKey(0)
